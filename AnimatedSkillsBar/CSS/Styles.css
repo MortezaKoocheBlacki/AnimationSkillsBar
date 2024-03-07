@@ -1,0 +1,114 @@
+/* General Styles */
+@font-face {
+    font-family: Signika;
+    src: url(../Fonts/Signika-VariableFont.ttf);
+}
+:root{
+    --white-color: #FFF;
+    --body-background: linear-gradient(135deg, #515151, #666);
+    --main-font: Signika;
+    --main-color: #4070F4;
+}
+*, *::before, *::after{
+    box-sizing: border-box;
+    padding: 0; margin: 0;
+}
+body{
+    min-height: 100vh;
+    background: var(--body-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--main-font);
+}
+
+/* Skill Bar Container */
+.container{
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    background: var(--white-color);
+    margin: 0 15px;
+    padding: 10px 20px;
+    border-radius: 7px;
+}
+
+.container .skill-box{
+    width: 100%;
+    margin: 25px 0;
+}
+
+.skill-box .title{
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.skill-box .skill-bar{
+    height: 8px;
+    width: 100%;
+    margin-top: 6px;
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.skill-bar .skill-per{
+    position: relative;
+    display: block;
+    height: 100%; width: 100%;
+    border-radius: 7px;
+    width: 90%;
+    background: var(--main-color);
+    animation: progress 0.4s ease-in-out forwards;
+}
+@keyframes progress{
+    0%{
+        width: 0;
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.skill-per.css{
+    width: 70%;
+    animation-delay: 0.2s;
+}
+.skill-per.js{
+    width: 50%;
+    animation-delay: 0.3s;
+}
+.skill-per.bootstrap{
+    width: 60%;
+    animation-delay: 0.4s;
+}
+.skill-per.sass{
+    width: 40%;
+    animation-delay: 0.5s;
+}
+
+.skill-per .tooltip{
+    position: absolute;
+    right: -14px;
+    top: -28px;
+    font-size: 9px;
+    font-weight: 500;
+    color: #333;
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: var(--white-color);
+    background: var(--main-color);
+    z-index: 1;
+}
+
+.tooltip::before{
+    content: "";
+    left: 50%;
+    position: absolute;
+    bottom: -2px;
+    height: 10px; width: 10px;
+    transform: translateX(-50%) rotate(45deg);
+    z-index: -1;
+    background: var(--main-color);
+}
